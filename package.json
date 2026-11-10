@@ -1,0 +1,38 @@
+{
+  "name": "nemcp",
+  "version": "0.1.0",
+  "description": "MCP server for discoverable, interpretable, source-linked Australian NEM electricity market data (AEMO NEMWeb).",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OWNER/nemcp.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "ingest": "tsx src/ingest/cli.ts",
+    "backfill": "tsx src/ingest/backfill.ts",
+    "compact": "tsx src/ingest/compact.ts",
+    "fuel": "tsx src/ingest/fuel.ts",
+    "server": "tsx src/server/index.ts",
+    "test": "vitest run",
+    "evals": "NEM_EVAL_DATA_DIR=./data vitest run test/evals.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@duckdb/node-api": "2.0.0-r.1",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "exceljs": "^4.4.0",
+    "fflate": "^0.8.3",
+    "zod": "3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  }
+}
